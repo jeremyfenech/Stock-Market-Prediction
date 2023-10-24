@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Companies in the {{data.index_name}}</h1>
+
+  <div class="table-container index-container">
+    <table id="index-table">
+      <thead>
+        <tr>
+          {% for column in data.index_data.columns %}
+          <th>{{ column }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for index, row in data.index_data.iterrows() %}
+        <tr>
+          {% for value in row %}
+          <td>
+            {% if loop.index0 == 0 %}
+            <a href="/view/{{ value }}">{{ value }}</a>
+            {% else %} {{ value }} {% endif %}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+{% endblock %}
+
+

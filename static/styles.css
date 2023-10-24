@@ -1,0 +1,264 @@
+/* Set global font and color styles */
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f5f5f5;
+  padding-top: 110px;
+}
+
+/* Center the page content */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style the header */
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0;
+}
+
+/* Style the header bar */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: midnightblue;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  margin-left: 20px;
+}
+
+.navbar-shrink {
+  padding: 10px;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: font-size 0.3s;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .logo {
+    font-size: 20px;
+  }
+}
+
+
+/* Style the form */
+form {
+  margin: 20px 0;
+}
+
+label {
+  display: flex;
+  margin-bottom: 5px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: baseline;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Style the stock info section */
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 40px;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+p {
+  margin: 10px 0;
+}
+
+/* Style the price change based on whether it's positive or negative */
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
+
+/* Style the plot image */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0 2% 2%;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2%;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 20px 0 20px;
+  padding: 15px;
+}
+
+.paragraph {
+  max-width: 35%;
+  padding: 0;
+}
+
+/* Top Movers page */
+.table-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  flex-wrap: wrap; /* Added to wrap table containers on smaller screens */
+  align-items: flex-start; /* Added to align table containers at the top */
+}
+
+.table-container {
+  flex-basis: 48%;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  margin: 0 10px 20px;
+}
+
+.table-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px;
+  text-align: center;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Added to prevent table from expanding beyond container width */
+}
+
+.table-container th,
+.table-container td {
+  padding: 10px;
+  text-align: center;
+  white-space: normal; /* Updated to allow text wrapping */
+  word-break: break-word;
+  overflow: hidden;
+}
+
+.table-container th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.table-container tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table-container tbody tr:hover {
+  background-color: #eaf3ff;
+}
+
+.price-table{
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 1050px) {
+  .table-wrapper {
+    flex-direction: column; /* Change flex direction to column on smaller screens */
+  }
+
+  .table-container {
+    flex-basis: 100%;
+    max-width: 100%; /* Added to make table containers occupy full width */
+  }
+}
+
+/* Datatables */
+.dataTables_length,
+.dataTables_filter {
+  text-align: center;
+  margin: 10px;
+}
+
+.dataTables_length select,
+.dataTables_filter input[type="search"] {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+}
+
+.dataTables_wrapper .dataTables_length select {
+  margin: 0 5px 5px 5px;
+}

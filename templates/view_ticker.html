@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>${{data.current_ticker}} Current Predictions</h1>
+<div class="row">
+  <div class="col">
+    {% if data.latest_price %}
+    <h2>${{data.current_ticker }} Information</h2>
+    <p>Latest Price: {{ data.latest_price }}</p>
+    <p>Previous Price: {{ data.previous_price }}</p>
+    <p class="{% if data.positive %} positive {% else %} negative {% endif %}">
+      Price Change: {% if data.positive %}+{% endif %}{{data.price_change}} ({%
+      if data.positive %}+{% endif
+      %}{{(data.price_change/data.previous_price)|round(4) }}%)
+    </p>
+    {% endif %}
+  </div>
+  <div class="col">
+    <img src="{{ url_for('gauge') }}" />
+  </div>
+</div>
+
+<h2>Predicted Price for the Upcoming 20-Day Period</h2>
+<div class="table-container row">
+  <table class="price-table">
+    {% for column in data.predictions.columns %}
+    <tr>
+      <th>{{ column }}</th>
+      {% for index, row in data.predictions.iterrows() %}
+      <td>{{ row[column] }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<h3>Prediction Graph</h3>
+<div class="row">
+  <div class="col">
+    <img src="{{ url_for('predict_plot') }}" />
+  </div>
+</div>
+
+<h2>Technical Indicator Analysis</h2>
+<div class="row">
+  <div class="col">
+    <img src="{{ url_for('ma_plot') }}" />
+  </div>
+  <div class="col paragraph">
+    <p>
+      The Adj Close line shows the actual stock price. SMA_10 and EMA_20 lines
+      are moving averages of the price over the last 10 and 20 days
+      respectively, with the latter being more sensitive to recent price
+      movement. RSI measures the speed and change of price movements.
+      <br /><br />A trend can be established when the adjusted close line is
+      consistently above or below the moving average lines, indicating an
+      overall upward or downward tendency. Additionally, the RSI line can be
+      used to determine overbought or oversold situations, with values above 70
+      suggesting an overbought market and below 30 indicating an oversold
+      market. <br /><br />The arrow indicates how the price is currently moving
+      relative to the EMA_20. A green arrow indicates a positive price change,
+      while a red arrow indicates a negative price change, and an orange arrow
+      indicates no major change, with the price staying within 2% of the EWMA20.
+    </p>
+  </div>
+</div>
+{% endblock %}

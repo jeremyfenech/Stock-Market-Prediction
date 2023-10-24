@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>{{data.tab_name}}</h1>
+<div class="row">
+  <p>
+    This application is the Individual Assigned Practical Task (ARI2201) 2023
+    submission for Jeremy Fenech, at the University of Malta. <br />
+    <br />
+    The Stock Trader app is the front end to the project. This allows for users
+    to interact with the system in a user friendly way. <br />
+    <br />
+    The app has three main pages: <br />
+    - The Daily Movers page, showing which stocks have had the largest positive
+    or negative movemnts in the last 24 hours. <br />
+    - The Ticker view page. This is the main page of the project and shows a
+    selection of predictions, indicators, and information about the stocks.
+    <br />
+    - And, the Index page which is similar to the mover's page but now allows
+    for user's to view stocks from a specific index. <br />
+    <br />
+    The project is aimed at utilising an AI model to predict the future price of
+    stocks. This is done by using the Random Forest supervised machine learning
+    algorithm. <br />
+    <br />
+    <br />
+    The information provided from this application should not be taken as
+    financial advice, but only meant to be used as a tool to help users make
+    their own decisions. <br />
+    <br />
+  </p>
+</div>
+{% endblock %}
